@@ -56,10 +56,11 @@ import sample_env
 if not sample_env.get_is_thin():
     oracledb.init_oracle_client(lib_dir=sample_env.get_oracle_client())
 
-# conn = oracledb.connect(sample_env.get_drcp_connect_string(),
-#                         cclass="PYCLASS", purity=oracledb.ATTR_PURITY_SELF)
+conn = oracledb.connect(sample_env.get_drcp_connect_string(),
+                        cclass="PYCLASS", purity=oracledb.ATTR_PURITY_SELF)
 
-conn = oracledb.connect(sample_env.get_drcp_connect_string())
+# Uncomment the code below and Comment out the statement above to connect with Easy Connect Syntax
+# conn = oracledb.connect(sample_env.get_drcp_connect_string())
 
 cursor = conn.cursor()
 print("Performing query using DRCP...")
