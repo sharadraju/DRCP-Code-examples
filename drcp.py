@@ -62,7 +62,8 @@ conn = oracledb.connect(sample_env.get_drcp_connect_string(),
 # Uncomment the code below and Comment out the statement above to connect with Easy Connect Syntax
 # conn = oracledb.connect(sample_env.get_drcp_connect_string())
 
-cursor = conn.cursor()
-print("Performing query using DRCP...")
-for row in cursor.execute("select * from TestNumbers order by IntCol"):
-    print(row)
+with conn.cursor() as cursor:
+    #cursor = conn.cursor()
+    print("Performing query using DRCP...")
+    for row in cursor.execute("select * from TestNumbers order by IntCol"):
+        print(row)
